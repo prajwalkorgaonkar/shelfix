@@ -31,8 +31,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong!', error: err.message });
 });
 
-// Connect to MongoDB only if not already connected
-if (mongoose.connection.readyState === 0) {
+// Connect to MongoDB only if provided
+if (process.env.MONGO_URI && mongoose.connection.readyState === 0) {
   mongoose
     .connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
@@ -42,8 +42,10 @@ if (mongoose.connection.readyState === 0) {
       console.log('Connected to MongoDB');
     })
     .catch((err) => {
-      console.error('Failed to connect to MongoDB', err);
+      console.log('MongoDB not available, using in-memory storage:', err.message);
     });
+} else {
+  console.log('Using in-memory storage (MONGO_URI not provided)');
 }
 
 module.exports = app;

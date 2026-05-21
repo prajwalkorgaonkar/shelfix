@@ -54,12 +54,13 @@ vercel
 
 ## Environment Variables to Set on Vercel
 
-| Variable | Example |
-|----------|---------|
-| `MONGO_URI` | `mongodb+srv://user:pass@cluster.mongodb.net/shelfix?retryWrites=true&w=majority` |
-| `JWT_SECRET` | `your-random-secret-key-at-least-32-chars` |
-| `FRONTEND_URL` | `https://your-app.vercel.app` |
-| `NODE_ENV` | `production` |
+| Variable | Required? | Example |
+|----------|-----------|---------|
+| `JWT_SECRET` | ✅ Yes | `your-random-secret-key-at-least-32-chars` |
+| `NODE_ENV` | ✅ Yes | `production` |
+| `MONGO_URI` | ❌ Optional | Only if you want persistent database |
+
+**If you skip MONGO_URI**, the app uses in-memory storage (data resets on redeploy)
 
 ## Local Development
 

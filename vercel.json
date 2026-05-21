@@ -3,8 +3,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
   "env": {
-    "MONGO_URI": "@mongo_uri",
-    "JWT_SECRET": "@jwt_secret"
+    "JWT_SECRET": "@jwt_secret",
+    "NODE_ENV": "production"
   },
   "functions": {
     "api/**/*.js": {
