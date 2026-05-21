@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd client && npm install && npm run build",
+  "buildCommand": "cd client && npm install --force && npm run build",
   "outputDirectory": "client/dist",
-  "installCommand": "npm install && npm install --prefix server && npm install --prefix client",
+  "installCommand": "npm install --force && npm install --prefix server --force && npm install --prefix client --force",
   "functions": {
     "api/**/*.js": {
       "memory": 1024,
